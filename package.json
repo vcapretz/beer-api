@@ -6,7 +6,8 @@
   "scripts": {
     "lint": "xo --quiet",
     "test": "npm run lint && lab -v",
-    "start": "nodemon server.js"
+    "start": "node server.js",
+    "watch": "nodemon server.js"
   },
   "repository": {
     "type": "git",

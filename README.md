@@ -7,6 +7,7 @@ This API is intended to help you find points of sale near your location.
 
 - Node v7+
 - npm v5+
+- Mongo v3+
 
 ### Stack
 - [Hapi.js](https://hapijs.com/) - server
@@ -15,6 +16,9 @@ This API is intended to help you find points of sale near your location.
 - [code](https://github.com/hapijs/code) - assertion library
 - [blipp](https://github.com/danielb2/blipp) - hapi plugin to display the routes table at startup
 - [nodemon](https://nodemon.io/) - automatically reload
+- [joi](https://github.com/hapijs/joi) - object schema validator (used when posting data)
+- [mongoose](http://mongoosejs.com/) - mongo object modeling
+- [mongoose-unique-validator](https://www.npmjs.com/package/mongoose-unique-validator) - mongoose plugin for validation
 
 ### Running
 
@@ -23,6 +27,12 @@ This API is intended to help you find points of sale near your location.
 npm i
 ```
 
+- Open a second terminal window: 
+```sh
+mongod
+``` 
+
+- On your primary terminal window:
 ```sh
 npm start
 ```
