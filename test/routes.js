@@ -30,6 +30,7 @@ describe('Tests for API', () => {
 
     it('should return http status 200 for index route', done => {
         server.inject('/', response => {
+            expect(response.result.result).to.equal('Index route for the API, see "/pdv"');
             expect(response.statusCode).to.equal(200);
             done();
         });

@@ -35,7 +35,7 @@ module.exports = {
     registrations: [
         {
             plugin: './src',
-            options: { routes: { prefix: '/api' } }
+            options: { }
         }
     ]
 };

@@ -1,8 +1,12 @@
 const indexRoutes = require('./handlers/index');
+const pdvRoutes = require('./handlers/pdv');
 
 exports.register = (plugin, options, next) => {
     plugin.route([
         { method: 'GET', path: '/', config: indexRoutes.indexRoute },
+        { method: 'GET', path: '/pdv', config: pdvRoutes.getAll },
+        { method: 'GET', path: '/pdv/{id}', config: pdvRoutes.getById },
+        { method: 'POST', path: '/pdv', config: pdvRoutes.create },
         { method: 'GET', path: '/{path*}', config: indexRoutes.notFound }
     ]);
 
