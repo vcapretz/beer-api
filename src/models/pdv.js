@@ -2,13 +2,14 @@ const mongoose = require('mongoose');
 const uniqueValidator = require('mongoose-unique-validator');
 
 const Schema = new mongoose.Schema({
+    /* eslint-disable camelcase */
     trading_name: {
         type: String,
-        required: true,
+        required: true
     },
     owner_name: {
         type: String,
-        required: true,
+        required: true
     },
     document: {
         type: String,
@@ -16,21 +17,22 @@ const Schema = new mongoose.Schema({
         unique: true
     },
     coverage_area: {
-        type: Object,
+        type: Object
     },
     address: {
-        type: Object,
+        type: Object
     },
     deliver_capacity: {
-        type: Number,
-    },
+        type: Number
+    }
+    /* eslint-enable camelcase */
 }, {
-        timestamps: {
-            createdAt: 'createdAt',
-            updatedAt: 'updatedAt',
-        },
-        collection: 'pdv',
-    });
+    timestamps: {
+        createdAt: 'createdAt',
+        updatedAt: 'updatedAt'
+    },
+    collection: 'pdv'
+});
 
 Schema.plugin(uniqueValidator);
 

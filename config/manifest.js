@@ -5,12 +5,12 @@ const envKey = key => {
         development: {
             host: '0.0.0.0',
             port: 5000,
-            log: ['error'],
+            log: ['error']
         },
         production: {
             host: process.env.HOST,
             port: process.env.PORT,
-            log: false,
+            log: false
         }
     };
 

@@ -4,18 +4,20 @@ const rp = require('request-promise');
 const { Pdv } = require('../models');
 
 const pdvPostPayloadValidation = {
+    /*  eslint-disable camelcase */
     trading_name: Joi.string().required(),
     owner_name: Joi.string().required(),
     document: Joi.string().required(),
     coverage_area: Joi.object().required().keys({
         type: Joi.string().required(),
-        coordinates: Joi.array().required(),
+        coordinates: Joi.array().required()
     }),
     address: Joi.object().required().keys({
         type: Joi.string().required(),
-        coordinates: Joi.array().required(),
+        coordinates: Joi.array().required()
     }),
-    delivery_capacity: Joi.number().required(),
+    delivery_capacity: Joi.number().required()
+    /*  eslint-enable camelcase */
 };
 
 module.exports.getAll = {
@@ -54,7 +56,8 @@ module.exports.create = {
 
 module.exports.createList = {
     handler: async (request, reply) => {
-        let data, list;
+        let data;
+        let list;
 
         if (!request.payload.items && !request.payload.url) {
             return reply({ result: 'you should provide a url or an array of items to be imported' })
@@ -76,7 +79,7 @@ module.exports.createList = {
 
             if (!Array.isArray(externalData) && !externalData.pdvs) {
                 return reply({
-                    result: 'the url should contain an array of items or an object with the key "pdvs"',
+                    result: 'the url should contain an array of items or an object with the key "pdvs"'
                 })
                     .code(400);
             }

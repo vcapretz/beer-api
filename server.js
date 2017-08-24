@@ -15,17 +15,16 @@ if (!process.env.PRODUCTION) {
 
 Glue.compose(manifest, { relativeTo: __dirname }, (err, server) => {
     if (err) {
-        throw `error on server.register: ${err}`;
+        throw new Error(`error on server.register: ${err}`);
     }
     server.log(['test', 'error'], 'Test event');
-    
+
     server.start(async () => {
         try {
-            const databaseConnection = await connectDatabase();
+            await connectDatabase();
             console.log('database connected');
-        } catch (error) {
-            console.error('unable to connect to database');
-            process.exit(1);
+        } catch (err) {
+            throw new Error('unable to connect to database');
         }
 
         console.log(`server listening on ${server.info.uri.toLowerCase()}`);

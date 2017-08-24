@@ -11,4 +11,4 @@ module.exports.connectDatabase = () => {
 
         mongoose.connect(databaseConfig, { useMongoClient: true });
     });
-}
+};
