@@ -37,7 +37,9 @@
     "hapi": "^16.5.2",
     "joi": "^10.6.0",
     "mongoose": "^4.11.7",
-    "mongoose-unique-validator": "^1.0.5"
+    "mongoose-unique-validator": "^1.0.5",
+    "request": "^2.81.0",
+    "request-promise": "^4.2.1"
   },
   "xo": {
     "space": 4,

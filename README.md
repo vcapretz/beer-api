@@ -8,6 +8,8 @@ The Hapi.js framework already provides many plugins to commom tasks such as vali
 
 Dockerfile and docker-compose were added to make it easier for you to build it and run locally without requirements conflicts or whatever.
 
+Disclaimer: PDV = PoS = Point of Sale
+
 ## Requirements
 
 - Node v7+

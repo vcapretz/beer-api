@@ -7,6 +7,7 @@ exports.register = (plugin, options, next) => {
         { method: 'GET', path: '/pdv', config: pdvRoutes.getAll },
         { method: 'GET', path: '/pdv/{id}', config: pdvRoutes.getById },
         { method: 'POST', path: '/pdv', config: pdvRoutes.create },
+        { method: 'POST', path: '/pdv/import', config: pdvRoutes.createList },
         { method: 'GET', path: '/{path*}', config: indexRoutes.notFound }
     ]);
 

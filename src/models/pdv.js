@@ -2,11 +2,11 @@ const mongoose = require('mongoose');
 const uniqueValidator = require('mongoose-unique-validator');
 
 const Schema = new mongoose.Schema({
-    tradingName: {
+    trading_name: {
         type: String,
         required: true,
     },
-    ownerName: {
+    owner_name: {
         type: String,
         required: true,
     },
@@ -15,13 +15,13 @@ const Schema = new mongoose.Schema({
         required: true,
         unique: true
     },
-    coverageArea: {
+    coverage_area: {
         type: Object,
     },
     address: {
         type: Object,
     },
-    deliveryCapacity: {
+    deliver_capacity: {
         type: Number,
     },
 }, {
