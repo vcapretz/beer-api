@@ -1,5 +1,6 @@
 const Joi = require('joi');
 const rp = require('request-promise');
+const gju = require('geojson-utils');
 
 const { Pdv } = require('../models');
 
@@ -25,6 +26,39 @@ module.exports.getAll = {
         const getAllPdv = await Pdv.find();
 
         return reply({ items: getAllPdv });
+    }
+};
+
+module.exports.getNearby = {
+    handler: async (request, reply) => {
+        const { query = {} } = request;
+
+        const getAllPdv = await Pdv.find();
+
+        if (!query.max_range || !query.lat || !query.lon) {
+            return reply({ items: getAllPdv });
+        }
+
+        const lat = Number(query.lat).toFixed(6);
+        const lon = Number(query.lon).toFixed(6);
+
+        const nearPdv = getAllPdv
+            .filter(pdv => pdv.address && pdv.address.coordinates)
+            .filter(pdv => {
+                const pdvDistance = gju.pointDistance(
+                    { type: 'Point', coordinates: [lat, lon] },
+                    pdv.address
+                );
+
+                return query.max_range >= pdvDistance;
+            })
+            .filter(pdv => {
+                return gju.pointInPolygon(
+                    { type: 'Point', coordinates: [lat, lon] },
+                    pdv.coverage_area
+                );
+            });
+        return reply({ items: nearPdv });
     }
 };
 

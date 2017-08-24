@@ -5,7 +5,7 @@
   "main": "server.js",
   "scripts": {
     "lint": "xo --quiet",
-    "test": "npm run lint && lab -v",
+    "test": "npm run lint && lab -v --leaks",
     "start": "node server.js",
     "watch": "nodemon server.js"
   },
@@ -33,6 +33,7 @@
     "xo": "^0.18.2"
   },
   "dependencies": {
+    "geojson-utils": "^1.1.0",
     "glue": "^4.2.0",
     "hapi": "^16.5.2",
     "joi": "^10.6.0",
