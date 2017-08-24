@@ -27,6 +27,7 @@ Disclaimer: PDV = PoS = Point of Sale
 - [joi](https://github.com/hapijs/joi) - object schema validator (used when posting data)
 - [mongoose](http://mongoosejs.com/) - mongo object modeling
 - [mongoose-unique-validator](https://www.npmjs.com/package/mongoose-unique-validator) - mongoose plugin for validation
+- [request](https://github.com/request/request) and [request-promise](https://github.com/request/request-promise) - HTTP request with async/await and Promises support
 
 ## Running
 
@@ -86,4 +87,17 @@ npm run test
 ├── docker-compose.yml
 ├── Dockerfile
 └── package.json
+```
+
+## Importing new PDV's 
+
+You can import multiple PDV's at once using the `POST /pdv/import` endpoint.
+
+For that, you can use either `items` or `url` key, where the `items` should be an array of PDV's to be added and the `url` should be an external JSON file containing the data.
+
+Example: 
+```json
+{
+ "url": "https://raw.githubusercontent.com/ZXVentures/code-challenge/master/files/pdvs.json"	
+}
 ```
