@@ -33,12 +33,18 @@
   },
   "dependencies": {
     "glue": "^4.2.0",
-    "hapi": "^16.5.2"
+    "hapi": "^16.5.2",
+    "joi": "^10.6.0",
+    "mongoose": "^4.11.7",
+    "mongoose-unique-validator": "^1.0.5"
   },
   "xo": {
     "space": 4,
     "rules": {
-      "object-curly-spacing": ["error", "always"]
+      "object-curly-spacing": [
+        "error",
+        "always"
+      ]
     }
-	}
+  }
 }
